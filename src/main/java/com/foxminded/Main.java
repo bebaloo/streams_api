@@ -4,9 +4,9 @@ import java.io.FileNotFoundException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-import com.foxminded.services.AbbreviationDataParseService;
-import com.foxminded.services.EndDataParseService;
-import com.foxminded.services.StartDataParseService;
+import com.foxminded.services.parsers.AbbreviationDataParseService;
+import com.foxminded.services.parsers.EndDataParseService;
+import com.foxminded.services.parsers.StartDataParseService;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.foxminded.services;
+package com.foxminded.services.parsers;
 
 import java.util.List;
 
