@@ -3,30 +3,31 @@ package com.foxminded.models;
 import java.time.LocalDateTime;
 
 public class EndData extends FileData {
-    private LocalDateTime endTime;
+    private LocalDateTime racerEndTime;
     
     public EndData(String racerAbbreviation, LocalDateTime endTime) {
         super(racerAbbreviation);
-        this.endTime = endTime;
+        this.racerEndTime = endTime;
     }
     
     public String getRacerAbbreviation() {
         return racerAbbreviation;
     }
-    public LocalDateTime getEndTime() {
-        return endTime;
-    }
+    
     public void setRacerAbreviation(String racerAbbreviation) {
         this.racerAbbreviation = racerAbbreviation;
     }
-    public void setEndTime(LocalDateTime endTime) {
-        this.endTime = endTime;
+    
+    public LocalDateTime getRacerEndTime() {
+        return racerEndTime;
+    }
+
+    public void setRacerEndTime(LocalDateTime racerEndTime) {
+        this.racerEndTime = racerEndTime;
     }
 
     @Override
     public String toString() {
-        return "EndData [endTime=" + endTime + ", racerAbbreviation=" + racerAbbreviation + "]\n";
+        return "EndData [endTime=" + racerEndTime + ", racerAbbreviation=" + racerAbbreviation + "]\n";
     }
-
-   
 }

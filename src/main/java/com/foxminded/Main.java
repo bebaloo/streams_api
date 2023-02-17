@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 import com.foxminded.services.AbbreviationDataParseService;
 import com.foxminded.services.EndDataParseService;
+import com.foxminded.services.StartDataParseService;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,7 +20,6 @@ public class Main {
         try {
             System.out.println(abbreviationParseService.parse());
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         
@@ -27,7 +27,13 @@ public class Main {
         try {
             System.out.println(endDataParseService.parse());
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        StartDataParseService service = new StartDataParseService("src/main/resources/start.log");
+        try {
+            System.out.println(service.parse());
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }

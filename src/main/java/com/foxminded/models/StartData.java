@@ -22,4 +22,9 @@ public class StartData extends FileData{
     public void setRacerStartTime(LocalDateTime racerStartTime) {
         this.racerStartTime = racerStartTime;
     }
+
+    @Override
+    public String toString() {
+        return "StartData [racerStartTime=" + racerStartTime + ", racerAbbreviation=" + racerAbbreviation + "]\n";
+    }
 }
