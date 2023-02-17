@@ -22,4 +22,11 @@ public class EndData extends FileData {
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
+
+    @Override
+    public String toString() {
+        return "EndData [endTime=" + endTime + ", racerAbbreviation=" + racerAbbreviation + "]\n";
+    }
+
+   
 }

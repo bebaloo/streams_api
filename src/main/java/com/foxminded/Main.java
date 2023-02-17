@@ -1,13 +1,11 @@
 package com.foxminded;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.Time;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-import com.foxminded.services.AbbreviationParseService;
-
+import com.foxminded.services.AbbreviationDataParseService;
+import com.foxminded.services.EndDataParseService;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,9 +15,17 @@ public class Main {
              
         System.out.print(duration.toMinutes() +":"+ duration.toSeconds() % 60 +"."+ duration.toMillis() % 60000 * 0.001);
         
-        AbbreviationParseService abbreviationParseService = new AbbreviationParseService("src/main/resources/abbreviations.txt");
+        AbbreviationDataParseService abbreviationParseService = new AbbreviationDataParseService("src/main/resources/abbreviations.txt");
         try {
             System.out.println(abbreviationParseService.parse());
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        EndDataParseService endDataParseService = new EndDataParseService("src/main/resources/end.log");
+        try {
+            System.out.println(endDataParseService.parse());
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
