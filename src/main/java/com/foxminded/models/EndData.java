@@ -13,21 +13,8 @@ public class EndData extends FileData {
     public String getRacerAbbreviation() {
         return racerAbbreviation;
     }
-    
-    public void setRacerAbreviation(String racerAbbreviation) {
-        this.racerAbbreviation = racerAbbreviation;
-    }
-    
+
     public LocalDateTime getRacerEndTime() {
         return racerEndTime;
-    }
-
-    public void setRacerEndTime(LocalDateTime racerEndTime) {
-        this.racerEndTime = racerEndTime;
-    }
-
-    @Override
-    public String toString() {
-        return "EndData [endTime=" + racerEndTime + ", racerAbbreviation=" + racerAbbreviation + "]\n";
     }
 }

@@ -27,16 +27,4 @@ public class ResultLap {
     public String getTimeLap() {
         return timeLap;
     }
-
-    public void setRacerName(String racerName) {
-        this.racerName = racerName;
-    }
-
-    public void setRacerTeam(String racerTeam) {
-        this.racerTeam = racerTeam;
-    }
-
-    public void setTimeLap(String timeLap) {
-        this.timeLap = timeLap;
-    }
 }
