@@ -13,6 +13,30 @@ public class ResultLap {
 
     @Override
     public String toString() {
-        return "ResultLap [racerName=" + racerName + ", racerTeam=" + racerTeam + ", timeLap=" + timeLap + "]\n";
+        return racerName + " | " + racerTeam + " | " +  timeLap + "\n";
+    }
+
+    public String getRacerName() {
+        return racerName;
+    }
+
+    public String getRacerTeam() {
+        return racerTeam;
+    }
+
+    public String getTimeLap() {
+        return timeLap;
+    }
+
+    public void setRacerName(String racerName) {
+        this.racerName = racerName;
+    }
+
+    public void setRacerTeam(String racerTeam) {
+        this.racerTeam = racerTeam;
+    }
+
+    public void setTimeLap(String timeLap) {
+        this.timeLap = timeLap;
     }
 }

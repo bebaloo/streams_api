@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import com.foxminded.models.*;
@@ -43,6 +44,8 @@ public class ResultGenerator {
 
                             String racerName = a.getRacerName();
                             String racerTeam = a.getRacerTeam();
+                            
+                            results.sort(Comparator.comparing(ResultLap::getTimeLap));
 
                             results.add(new ResultLap(racerName, racerTeam, string));
                         }
