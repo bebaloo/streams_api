@@ -7,11 +7,12 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.foxminded.models.FileData;
+import com.foxminded.models.StartData;
 
 public abstract class ParseService {
     protected String FILE_PATH;
     
-    public List<FileData> parse() throws FileNotFoundException {
+    public List<?> parse() throws FileNotFoundException {
         List<FileData> list = new ArrayList<>();
         
         File file = new File(FILE_PATH);

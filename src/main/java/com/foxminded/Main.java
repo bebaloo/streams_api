@@ -4,9 +4,11 @@ import java.io.FileNotFoundException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+import com.foxminded.services.ResultGenerator;
 import com.foxminded.services.parsers.AbbreviationDataParseService;
 import com.foxminded.services.parsers.EndDataParseService;
 import com.foxminded.services.parsers.StartDataParseService;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -14,7 +16,7 @@ public class Main {
         LocalDateTime l2 = LocalDateTime.parse("2018-05-24T12:15:24.067");
         Duration duration = Duration.between(l1, l2);
              
-        System.out.print(duration.toMinutes() +":"+ duration.toSeconds() % 60 +"."+ duration.toMillis() % 60000 * 0.001);
+        System.out.print(duration.toMinutes() +":"+ duration.toSeconds() % 60 +"."+ duration.toMillis() % 3600);
         
         AbbreviationDataParseService abbreviationParseService = new AbbreviationDataParseService("src/main/resources/abbreviations.txt");
         try {
@@ -36,5 +38,9 @@ public class Main {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        
+        ResultGenerator g = new ResultGenerator();
+        
+        System.out.println("\n\n" + g.generate());
     }
 }
