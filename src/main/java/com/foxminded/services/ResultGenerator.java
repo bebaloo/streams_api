@@ -39,15 +39,12 @@ public class ResultGenerator {
                             LocalDateTime endTime = endData.getRacerEndTime();
                             Duration duration = Duration.between(startTime, endTime);
 
-                            String string = duration.toMinutes() % 60 + ":" + duration.toSeconds() % 60 + "."
-                                    + duration.toMillis() % 60;
+                            String timeLap = setTimeLap(duration);
 
                             String racerName = abbreviationData.getRacerName();
                             String racerTeam = abbreviationData.getRacerTeam();
                             
-                            results.sort(Comparator.comparing(ResultLap::getTimeLap));
-
-                            results.add(new ResultLap(racerName, racerTeam, string));
+                            results.add(new ResultLap(racerName, racerTeam, timeLap));
                         }
                     }
                 }
@@ -56,7 +53,14 @@ public class ResultGenerator {
             e.printStackTrace();
         }
 
+        results.sort(Comparator.comparing(ResultLap::getTimeLap));
+        
         return results;
+    }
+    
+    private String setTimeLap(Duration duration) {
+        return duration.toMinutes() % 60 + ":" + duration.toSeconds() % 60 + "."
+                + duration.toMillis() % 60;
     }
 
 }
