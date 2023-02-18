@@ -31,19 +31,19 @@ public class ResultGenerator {
             List<EndData> endLogs = (List<EndData>) endDataParseService.parse();
             List<AbbreviationData> abbreviations = (List<AbbreviationData>) abbreviationDataParseService.parse();
 
-            for (StartData s : startLogs) {
-                for (EndData e : endLogs) {
-                    for (AbbreviationData a : abbreviations) {
-                        if (s.getRacerAbbreviation().equals(e.getRacerAbbreviation()) && s.getRacerAbbreviation().equals(a.getRacerAbbreviation())) {
-                            LocalDateTime sl = s.getRacerStartTime();
-                            LocalDateTime e1 = e.getRacerEndTime();
-                            Duration duration = Duration.between(sl, e1);
+            for (StartData startData : startLogs) {
+                for (EndData endData : endLogs) {
+                    for (AbbreviationData abbreviationData : abbreviations) {
+                        if (startData.getRacerAbbreviation().equals(endData.getRacerAbbreviation()) && startData.getRacerAbbreviation().equals(abbreviationData.getRacerAbbreviation())) {
+                            LocalDateTime startTime = startData.getRacerStartTime();
+                            LocalDateTime endTime = endData.getRacerEndTime();
+                            Duration duration = Duration.between(startTime, endTime);
 
                             String string = duration.toMinutes() % 60 + ":" + duration.toSeconds() % 60 + "."
                                     + duration.toMillis() % 60;
 
-                            String racerName = a.getRacerName();
-                            String racerTeam = a.getRacerTeam();
+                            String racerName = abbreviationData.getRacerName();
+                            String racerTeam = abbreviationData.getRacerTeam();
                             
                             results.sort(Comparator.comparing(ResultLap::getTimeLap));
 

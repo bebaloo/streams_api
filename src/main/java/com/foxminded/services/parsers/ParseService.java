@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.foxminded.models.FileData;
-import com.foxminded.models.StartData;
 
 public abstract class ParseService {
     protected String FILE_PATH;
@@ -19,7 +18,7 @@ public abstract class ParseService {
         Scanner scanner = new Scanner(file);
 
         while (scanner.hasNextLine()) {
-            listAdd(list, scanner.nextLine());
+            parseList(list, scanner.nextLine());
         }
 
         scanner.close();
@@ -27,7 +26,7 @@ public abstract class ParseService {
         return list;
     }
 
-    protected abstract void listAdd(List<FileData> list, String line);
+    protected abstract void parseList(List<FileData> list, String line);
            
     protected ParseService(String FILE_PATH) {
         this.FILE_PATH = FILE_PATH;
