@@ -12,18 +12,18 @@ public abstract class ParseService {
     protected String FILE_PATH;
     
     public List<?> parse() throws FileNotFoundException {
-        List<FileData> list = new ArrayList<>();
+        List<FileData> fileDatas = new ArrayList<>();
         
         File file = new File(FILE_PATH);
         Scanner scanner = new Scanner(file);
 
         while (scanner.hasNextLine()) {
-            parseList(list, scanner.nextLine());
+            parseList(fileDatas, scanner.nextLine());
         }
 
         scanner.close();
 
-        return list;
+        return fileDatas;
     }
 
     protected abstract void parseList(List<FileData> list, String line);
