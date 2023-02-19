@@ -13,7 +13,7 @@ public class ResultLap {
 
     @Override
     public String toString() {
-        return racerName + " | " + racerTeam + " | " +  timeLap + "\n";
+        return racerName + " | " + racerTeam + " | " +  timeLap;
     }
 
     public String getRacerName() {
