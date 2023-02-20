@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import com.foxminded.model.FormulasLogsData;
 
-public abstract class ParseService {
+public abstract class ParseService implements ParseServiceInterface {
     private String filePath;
 
     public List parse() throws FileNotFoundException {
@@ -28,7 +28,7 @@ public abstract class ParseService {
 
     protected abstract void parseList(List<FormulasLogsData> list, String line);
 
-    protected ParseService(String FILE_PATH) {
-        this.filePath = FILE_PATH;
+    protected ParseService(String filePath) {
+        this.filePath = filePath;
     }
 }

@@ -10,9 +10,9 @@ public class StartDataParseService extends ParseService {
 
     @Override
     protected void parseList(List<FormulasLogsData> list, String line) {
-        String abbreviation = line.substring(0, 3);
-        StringBuilder dateTime = new StringBuilder(line.substring(3));
-        dateTime.setCharAt(10, 'T');
+        String abbreviation = line.substring(START_SUBSTRING_INDEX, END_SUBSTRING_INDEX);
+        StringBuilder dateTime = new StringBuilder(line.substring(END_SUBSTRING_INDEX));
+        dateTime.setCharAt(DATE_TIME_INSERT_INDEX, DATE_TIME_INSERT_CHARACTER);
         LocalDateTime racerStartTime = LocalDateTime.parse(dateTime);
         
         list.add(new StartData(abbreviation, racerStartTime));
