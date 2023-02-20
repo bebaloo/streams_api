@@ -1,4 +1,4 @@
-package com.foxminded.models;
+package com.foxminded.model;
 
 public class AbbreviationData extends FileData{
     private String racerName;

@@ -1,4 +1,4 @@
-package com.foxminded.services;
+package com.foxminded.service;
 
 import java.io.FileNotFoundException;
 import java.time.Duration;
@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import com.foxminded.models.*;
-import com.foxminded.services.parsers.AbbreviationDataParseService;
-import com.foxminded.services.parsers.EndDataParseService;
-import com.foxminded.services.parsers.StartDataParseService;
+import com.foxminded.model.*;
+import com.foxminded.services.parser.AbbreviationDataParseService;
+import com.foxminded.services.parser.EndDataParseService;
+import com.foxminded.services.parser.StartDataParseService;
 
 public class ResultGenerator {
     private final String FILE_PATH_ABBREVIATIONS = "src/main/resources/abbreviations.txt";
@@ -48,7 +48,7 @@ public class ResultGenerator {
                         }
                     }
                 }
-            }
+            } 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -1,7 +1,7 @@
 package com.foxminded;
 
-import com.foxminded.services.Formatter;
-import com.foxminded.services.ResultGenerator;
+import com.foxminded.service.Formatter;
+import com.foxminded.service.ResultGenerator;
 
 public class Main {
     public static void main(String[] args) {

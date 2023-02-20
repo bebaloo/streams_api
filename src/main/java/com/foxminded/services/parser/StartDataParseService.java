@@ -1,10 +1,10 @@
-package com.foxminded.services.parsers;
+package com.foxminded.services.parser;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.foxminded.models.FileData;
-import com.foxminded.models.StartData;
+import com.foxminded.model.FileData;
+import com.foxminded.model.StartData;
 
 public class StartDataParseService extends ParseService {
 

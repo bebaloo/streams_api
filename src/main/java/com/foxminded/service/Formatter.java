@@ -1,8 +1,8 @@
-package com.foxminded.services;
+package com.foxminded.service;
 
 import java.util.List;
 
-import com.foxminded.models.ResultLap;
+import com.foxminded.model.ResultLap;
 
 public class Formatter {
     public void format(List<ResultLap> lapsResults) {

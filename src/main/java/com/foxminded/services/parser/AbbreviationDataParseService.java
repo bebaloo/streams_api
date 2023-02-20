@@ -1,9 +1,9 @@
-package com.foxminded.services.parsers;
+package com.foxminded.services.parser;
 
 import java.util.List;
 
-import com.foxminded.models.AbbreviationData;
-import com.foxminded.models.FileData;
+import com.foxminded.model.AbbreviationData;
+import com.foxminded.model.FileData;
 
 public class AbbreviationDataParseService extends ParseService{
     

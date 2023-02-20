@@ -1,4 +1,4 @@
-package com.foxminded.models;
+package com.foxminded.model;
 
 public class FileData {
     protected String racerAbbreviation;
