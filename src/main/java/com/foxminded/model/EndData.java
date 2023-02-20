@@ -3,13 +3,14 @@ package com.foxminded.model;
 import java.time.LocalDateTime;
 
 public class EndData extends FormulasLogsData {
-    private LocalDateTime racerEndTime;
-    
+    private final LocalDateTime racerEndTime;
+
     public EndData(String racerAbbreviation, LocalDateTime endTime) {
         super(racerAbbreviation);
         this.racerEndTime = endTime;
     }
-    
+
+    @Override
     public String getRacerAbbreviation() {
         return racerAbbreviation;
     }

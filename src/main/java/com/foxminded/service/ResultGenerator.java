@@ -29,8 +29,8 @@ public class ResultGenerator {
 
         try {
             List<StartData> startLogs = startDataParseService.parse();
-            List<EndData> endLogs =  endDataParseService.parse();
-            List<AbbreviationData> abbreviations =  abbreviationDataParseService.parse();
+            List<EndData> endLogs = endDataParseService.parse();
+            List<AbbreviationData> abbreviations = abbreviationDataParseService.parse();
 
             for (StartData startData : startLogs) {
                 for (EndData endData : endLogs) {
@@ -38,22 +38,22 @@ public class ResultGenerator {
                         if (startData.getRacerAbbreviation().equals(endData.getRacerAbbreviation()) && startData.getRacerAbbreviation().equals(abbreviationData.getRacerAbbreviation())) {
                             LocalDateTime startTime = startData.getRacerStartTime();
                             LocalDateTime endTime = endData.getRacerEndTime();
-                            
+
                             Duration timeLap = Duration.between(startTime, endTime);
                             String racerName = abbreviationData.getRacerName();
                             String racerTeam = abbreviationData.getRacerTeam();
-                            
+
                             results.add(new ResultLap(racerName, racerTeam, timeLap));
                         }
                     }
                 }
-            } 
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         results.sort(Comparator.comparing(ResultLap::getTimeLap));
-        
+
         return results;
     }
 }

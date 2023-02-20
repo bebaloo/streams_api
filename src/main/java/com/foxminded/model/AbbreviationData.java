@@ -1,21 +1,24 @@
 package com.foxminded.model;
 
 public class AbbreviationData extends FormulasLogsData {
-    private String racerName;
-    private String racerTeam;
-    
+    private final String racerName;
+    private final String racerTeam;
+
     public AbbreviationData(String racerAbbreviation, String racerName, String racerTeam) {
         super(racerAbbreviation);
         this.racerName = racerName;
         this.racerTeam = racerTeam;
     }
-    
+
+    @Override
     public String getRacerAbbreviation() {
         return racerAbbreviation;
     }
+
     public String getRacerName() {
         return racerName;
     }
+
     public String getRacerTeam() {
         return racerTeam;
     }

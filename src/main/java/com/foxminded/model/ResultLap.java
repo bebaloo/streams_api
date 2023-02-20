@@ -3,9 +3,9 @@ package com.foxminded.model;
 import java.time.Duration;
 
 public class ResultLap {
-    private String racerName;
-    private String racerTeam;
-    private Duration timeLap;
+    private final String racerName;
+    private final String racerTeam;
+    private final Duration timeLap;
     
     public ResultLap(String racerName, String racerTeam, Duration timeLap) {
         this.racerName = racerName;

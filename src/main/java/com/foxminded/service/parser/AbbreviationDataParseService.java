@@ -17,7 +17,7 @@ public class AbbreviationDataParseService extends ParseService {
 
         return abbreviationDatas;
     }
-    
+
     public AbbreviationDataParseService(String filePath) {
         super(filePath);
     }
