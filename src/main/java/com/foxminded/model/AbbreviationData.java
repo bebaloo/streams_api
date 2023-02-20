@@ -1,6 +1,6 @@
 package com.foxminded.model;
 
-public class AbbreviationData extends FileData{
+public class AbbreviationData extends FormulasLogsData {
     private String racerName;
     private String racerTeam;
     

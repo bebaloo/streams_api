@@ -7,12 +7,13 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.foxminded.model.FileData;
+import com.foxminded.model.FormulasLogsData;
 
 public abstract class ParseService {
     protected String FILE_PATH;
 
     public List parse() throws FileNotFoundException {
-        List<FileData> fileDatas = new ArrayList<>();
+        List<FormulasLogsData> fileDatas = new ArrayList<>();
 
         File file = new File(FILE_PATH);
         Scanner scanner = new Scanner(file);
@@ -26,7 +27,7 @@ public abstract class ParseService {
         return fileDatas;
     }
 
-    protected abstract void parseList(List<FileData> list, String line);
+    protected abstract void parseList(List<FormulasLogsData> list, String line);
 
     protected ParseService(String FILE_PATH) {
         this.FILE_PATH = FILE_PATH;

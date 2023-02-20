@@ -1,9 +1,9 @@
 package com.foxminded.model;
 
-public class FileData {
+public class FormulasLogsData {
     protected String racerAbbreviation;
     
-    protected FileData(String racerAbbreviation) {
+    protected FormulasLogsData(String racerAbbreviation) {
         this.racerAbbreviation = racerAbbreviation;
     }
 

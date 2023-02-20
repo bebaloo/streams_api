@@ -2,7 +2,7 @@ package com.foxminded.model;
 
 import java.time.LocalDateTime;
 
-public class EndData extends FileData {
+public class EndData extends FormulasLogsData {
     private LocalDateTime racerEndTime;
     
     public EndData(String racerAbbreviation, LocalDateTime endTime) {
