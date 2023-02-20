@@ -1,11 +1,13 @@
 package com.foxminded.model;
 
+import java.time.Duration;
+
 public class ResultLap {
     private String racerName;
     private String racerTeam;
-    private String timeLap;
+    private Duration timeLap;
     
-    public ResultLap(String racerName, String racerTeam, String timeLap) {
+    public ResultLap(String racerName, String racerTeam, Duration timeLap) {
         this.racerName = racerName;
         this.racerTeam = racerTeam;
         this.timeLap = timeLap;
@@ -24,7 +26,7 @@ public class ResultLap {
         return racerTeam;
     }
 
-    public String getTimeLap() {
+    public Duration getTimeLap() {
         return timeLap;
     }
 }
