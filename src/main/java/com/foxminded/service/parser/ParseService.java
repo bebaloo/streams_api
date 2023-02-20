@@ -1,4 +1,4 @@
-package com.foxminded.services.parser;
+package com.foxminded.service.parser;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ParseService implements ParseServiceInterface {
-    private String filePath;
+    private final String filePath;
 
     public List parse() throws IOException {
         List<String> inputLines = new ArrayList<>();
@@ -18,13 +18,10 @@ public abstract class ParseService implements ParseServiceInterface {
             while ((line = bufferedReader.readLine()) != null) {
                 inputLines.add(line);
             }
-            bufferedReader.close();
         }
 
-        return parseList(inputLines);
+        return parseInputLines(inputLines);
     }
-
-    protected abstract List parseList(List<String> line);
 
     protected ParseService(String filePath) {
         this.filePath = filePath;

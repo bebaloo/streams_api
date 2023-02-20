@@ -1,4 +1,4 @@
-package com.foxminded.services.parser;
+package com.foxminded.service.parser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,8 @@ import java.util.List;
 import com.foxminded.model.AbbreviationData;
 
 public class AbbreviationDataParseService extends ParseService {
-
     @Override
-    protected List<AbbreviationData> parseList(List<String> inputLines) {
+    public List parseInputLines(List<String> inputLines) {
         List<AbbreviationData> abbreviationDatas = new ArrayList<>();
 
         for (String line : inputLines) {
@@ -18,7 +17,7 @@ public class AbbreviationDataParseService extends ParseService {
 
         return abbreviationDatas;
     }
-
+    
     public AbbreviationDataParseService(String filePath) {
         super(filePath);
     }

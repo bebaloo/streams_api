@@ -1,4 +1,4 @@
-package com.foxminded.services.parser;
+package com.foxminded.service.parser;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import com.foxminded.model.StartData;
 public class StartDataParseService extends ParseService {
 
     @Override
-    protected List<StartData> parseList(List<String> inputLines) {
+    public List parseInputLines(List<String> inputLines) {
         List<StartData> startDatas = new ArrayList<>();
         for (String line : inputLines) {
             String abbreviation = line.substring(START_SUBSTRING_INDEX, END_SUBSTRING_INDEX);

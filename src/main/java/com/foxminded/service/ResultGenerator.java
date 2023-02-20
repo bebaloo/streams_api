@@ -9,9 +9,9 @@ import java.util.Comparator;
 import java.util.List;
 
 import com.foxminded.model.*;
-import com.foxminded.services.parser.AbbreviationDataParseService;
-import com.foxminded.services.parser.EndDataParseService;
-import com.foxminded.services.parser.StartDataParseService;
+import com.foxminded.service.parser.AbbreviationDataParseService;
+import com.foxminded.service.parser.EndDataParseService;
+import com.foxminded.service.parser.StartDataParseService;
 
 public class ResultGenerator {
     private final String FILE_PATH_ABBREVIATIONS = "src/main/resources/abbreviations.txt";
