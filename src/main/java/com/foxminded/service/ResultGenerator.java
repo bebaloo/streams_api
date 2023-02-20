@@ -1,6 +1,7 @@
 package com.foxminded.service;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ public class ResultGenerator {
                     }
                 }
             } 
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

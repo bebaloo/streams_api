@@ -1,7 +1,10 @@
 package com.foxminded.services.parser;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,17 +14,18 @@ import com.foxminded.model.FormulasLogsData;
 public abstract class ParseService implements ParseServiceInterface {
     private String filePath;
 
-    public List parse() throws FileNotFoundException {
+    public List parse() throws IOException {
         List<FormulasLogsData> fileDatas = new ArrayList<>();
 
         File file = new File(filePath);
-        Scanner scanner = new Scanner(file);
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                parseList(fileDatas, line);
+            }
 
-        while (scanner.hasNextLine()) {
-            parseList(fileDatas, scanner.nextLine());
+            bufferedReader.close();
         }
-
-        scanner.close();
 
         return fileDatas;
     }
