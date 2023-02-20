@@ -9,7 +9,7 @@ import java.util.Scanner;
 import com.foxminded.model.FormulasLogsData;
 
 public abstract class ParseService {
-    protected String filePath;
+    private String filePath;
 
     public List parse() throws FileNotFoundException {
         List<FormulasLogsData> fileDatas = new ArrayList<>();
