@@ -1,7 +1,7 @@
 package com.foxminded.model;
 
 public class FormulasLogsData {
-    protected String racerAbbreviation;
+    private final String racerAbbreviation;
 
     protected FormulasLogsData(String racerAbbreviation) {
         this.racerAbbreviation = racerAbbreviation;
@@ -10,5 +10,4 @@ public class FormulasLogsData {
     public String getRacerAbbreviation() {
         return racerAbbreviation;
     }
-
 }

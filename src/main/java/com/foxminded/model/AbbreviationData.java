@@ -10,11 +10,6 @@ public class AbbreviationData extends FormulasLogsData {
         this.racerTeam = racerTeam;
     }
 
-    @Override
-    public String getRacerAbbreviation() {
-        return racerAbbreviation;
-    }
-
     public String getRacerName() {
         return racerName;
     }

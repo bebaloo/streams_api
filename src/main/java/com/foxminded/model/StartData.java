@@ -10,11 +10,6 @@ public class StartData extends FormulasLogsData {
         this.racerStartTime = racerStartTime;
     }
 
-    @Override
-    public String getRacerAbbreviation() {
-        return racerAbbreviation;
-    }
-
     public LocalDateTime getRacerStartTime() {
         return racerStartTime;
     }

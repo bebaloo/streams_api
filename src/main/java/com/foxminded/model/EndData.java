@@ -10,11 +10,6 @@ public class EndData extends FormulasLogsData {
         this.racerEndTime = endTime;
     }
 
-    @Override
-    public String getRacerAbbreviation() {
-        return racerAbbreviation;
-    }
-
     public LocalDateTime getRacerEndTime() {
         return racerEndTime;
     }
