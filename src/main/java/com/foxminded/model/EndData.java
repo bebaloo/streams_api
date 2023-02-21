@@ -13,4 +13,14 @@ public class EndData extends FormulasLogsData {
     public LocalDateTime getRacerEndTime() {
         return racerEndTime;
     }
+
+    public static EndData create(String inputLine) {
+        String abbreviation = inputLine.substring(START_SUBSTRING_INDEX, END_SUBSTRING_INDEX);
+        StringBuilder dateTime = new StringBuilder(inputLine.substring(END_SUBSTRING_INDEX));
+
+        dateTime.setCharAt(DATE_TIME_INSERT_INDEX, DATE_TIME_INSERT_CHARACTER);
+        LocalDateTime endTime = LocalDateTime.parse(dateTime);
+
+        return new EndData(abbreviation, endTime);
+    }
 }
