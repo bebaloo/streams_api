@@ -29,4 +29,9 @@ public class ResultLap {
     public Duration getTimeLap() {
         return timeLap;
     }
+
+    public String getFormattedTimeLap() {
+        return timeLap.toMinutes() % 60 + ":" + timeLap.toSeconds() % 60 + "."
+                + timeLap.toMillis() % 60;
+    }
 }

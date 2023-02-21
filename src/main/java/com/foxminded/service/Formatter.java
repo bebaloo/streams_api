@@ -12,11 +12,6 @@ public class Formatter {
                         + " | "
                         + t.getRacerTeam()
                         + " | "
-                        + setTimeLap(t.getTimeLap())));
-    }
-
-    private String setTimeLap(Duration duration) {
-        return duration.toMinutes() % 60 + ":" + duration.toSeconds() % 60 + "."
-                + duration.toMillis() % 60;
+                        + t.getFormattedTimeLap()));
     }
 }
