@@ -1,10 +1,10 @@
 package com.foxminded.service.parser;
 
+import com.foxminded.model.EndData;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.foxminded.model.EndData;
 
 public class EndDataParseService extends ParseService {
 
@@ -21,9 +21,5 @@ public class EndDataParseService extends ParseService {
             endDatas.add(new EndData(abbreviation, endTime));
         }
         return endDatas;
-    }
-
-    public EndDataParseService(String filePath) {
-        super(filePath);
     }
 }

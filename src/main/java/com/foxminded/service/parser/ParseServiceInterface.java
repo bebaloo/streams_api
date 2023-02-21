@@ -12,7 +12,7 @@ public interface ParseServiceInterface {
 
     String LINE_DATA_SPLIT_CHARACTER = "_";
 
-    List parse() throws IOException;
+    List parse(String filePath) throws IOException;
 
     List parseInputLines(List<String> inputLines);
 }

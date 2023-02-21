@@ -22,8 +22,4 @@ public class StartDataParseService extends ParseService {
         }
         return startDatas;
     }
-
-    public StartDataParseService(String filePath) {
-        super(filePath);
-    }
 }
