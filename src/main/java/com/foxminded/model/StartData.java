@@ -18,6 +18,10 @@ public class StartData {
         return racerStartTime;
     }
 
+    public String getRacerAbbreviation() {
+        return racerAbbreviation;
+    }
+
     public static StartData create(String inputLine) {
         String abbreviation = inputLine.substring(START_SUBSTRING_INDEX, END_SUBSTRING_INDEX);
 
