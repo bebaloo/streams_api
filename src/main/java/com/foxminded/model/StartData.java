@@ -2,11 +2,16 @@ package com.foxminded.model;
 
 import java.time.LocalDateTime;
 
-public class StartData extends FormulasLogsData {
+public class StartData {
+    private static final int START_SUBSTRING_INDEX = 0;
+    private static final int END_SUBSTRING_INDEX = 3;
+    private static final int DATE_TIME_INSERT_INDEX = 10;
+    private static final char DATE_TIME_INSERT_CHARACTER = 'T';
     private final LocalDateTime racerStartTime;
+    private final String racerAbbreviation;
 
     private StartData(String racerAbbreviation, LocalDateTime racerStartTime) {
-        super(racerAbbreviation);
+        this.racerAbbreviation = racerAbbreviation;
         this.racerStartTime = racerStartTime;
     }
 

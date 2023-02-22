@@ -2,16 +2,25 @@ package com.foxminded.model;
 
 import java.time.LocalDateTime;
 
-public class EndData extends FormulasLogsData {
+public class EndData {
+    private static final int START_SUBSTRING_INDEX = 0;
+    private static final int END_SUBSTRING_INDEX = 3;
+    private static final int DATE_TIME_INSERT_INDEX = 10;
+    private static final char DATE_TIME_INSERT_CHARACTER = 'T';
     private final LocalDateTime racerEndTime;
+    private final String racerAbbreviation;
 
     public EndData(String racerAbbreviation, LocalDateTime endTime) {
-        super(racerAbbreviation);
+        this.racerAbbreviation = racerAbbreviation;
         this.racerEndTime = endTime;
     }
 
     public LocalDateTime getRacerEndTime() {
         return racerEndTime;
+    }
+
+    public String getRacerAbbreviation() {
+        return racerAbbreviation;
     }
 
     public static EndData create(String inputLine) {

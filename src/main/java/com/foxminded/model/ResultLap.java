@@ -13,11 +13,6 @@ public class ResultLap {
         this.timeLap = timeLap;
     }
 
-    @Override
-    public String toString() {
-        return racerName + " | " + racerTeam + " | " +  timeLap;
-    }
-
     public String getRacerName() {
         return racerName;
     }

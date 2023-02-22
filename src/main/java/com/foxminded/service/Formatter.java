@@ -1,9 +1,8 @@
 package com.foxminded.service;
 
-import java.time.Duration;
-import java.util.List;
-
 import com.foxminded.model.ResultLap;
+
+import java.util.List;
 
 public class Formatter {
     public void format(List<ResultLap> lapsResults) {

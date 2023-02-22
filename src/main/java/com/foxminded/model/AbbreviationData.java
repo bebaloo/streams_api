@@ -1,11 +1,13 @@
 package com.foxminded.model;
 
-public class AbbreviationData extends FormulasLogsData {
+public class AbbreviationData {
+    private static final String FILE_SEPARATOR = "_";
+    private final String racerAbbreviation;
     private final String racerName;
     private final String racerTeam;
 
     private AbbreviationData(String racerAbbreviation, String racerName, String racerTeam) {
-        super(racerAbbreviation);
+        this.racerAbbreviation = racerAbbreviation;
         this.racerName = racerName;
         this.racerTeam = racerTeam;
     }
@@ -16,6 +18,10 @@ public class AbbreviationData extends FormulasLogsData {
 
     public String getRacerTeam() {
         return racerTeam;
+    }
+
+    public String getRacerAbbreviation() {
+        return racerAbbreviation;
     }
 
     public static AbbreviationData create(String inputLine) {
