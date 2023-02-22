@@ -1,12 +1,11 @@
 package com.foxminded.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class StartData {
     private static final int START_SUBSTRING_INDEX = 0;
     private static final int END_SUBSTRING_INDEX = 3;
-    private static final int DATE_TIME_INSERT_INDEX = 10;
-    private static final char DATE_TIME_INSERT_CHARACTER = 'T';
     private final LocalDateTime racerStartTime;
     private final String racerAbbreviation;
 
@@ -21,10 +20,10 @@ public class StartData {
 
     public static StartData create(String inputLine) {
         String abbreviation = inputLine.substring(START_SUBSTRING_INDEX, END_SUBSTRING_INDEX);
-        StringBuilder dateTime = new StringBuilder(inputLine.substring(END_SUBSTRING_INDEX));
 
-        dateTime.setCharAt(DATE_TIME_INSERT_INDEX, DATE_TIME_INSERT_CHARACTER);
-        LocalDateTime startTime = LocalDateTime.parse(dateTime);
+        String dateTime = inputLine.substring(END_SUBSTRING_INDEX);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH:mm:ss.SSS");
+        LocalDateTime startTime = LocalDateTime.parse(dateTime, formatter);
 
         return new StartData(abbreviation, startTime);
     }
