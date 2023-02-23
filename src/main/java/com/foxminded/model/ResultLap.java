@@ -6,7 +6,7 @@ public class ResultLap {
     private final String racerName;
     private final String racerTeam;
     private final Duration timeLap;
-    
+
     public ResultLap(String racerName, String racerTeam, Duration timeLap) {
         this.racerName = racerName;
         this.racerTeam = racerTeam;
@@ -26,7 +26,9 @@ public class ResultLap {
     }
 
     public String getFormattedTimeLap() {
-        return timeLap.toMinutes() % 60 + ":" + timeLap.toSeconds() % 60 + "."
-                + timeLap.toMillis() % 60;
+        Long min = timeLap.toMinutes() % 60;
+        Long sec = timeLap.toSeconds() % 60;
+        Long millis = timeLap.toMillis() % 60;
+        return String.format("%d:%d.%d", min, sec, millis);
     }
 }
