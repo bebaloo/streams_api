@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 
 public class StartData {
     private static final int[] TOKEN_INDEXES = {0, 3};
+
+    private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH:mm:ss.SSS");
     private final LocalDateTime racerStartTime;
     private final String racerAbbreviation;
 
@@ -25,8 +27,7 @@ public class StartData {
         String abbreviation = inputLine.substring(TOKEN_INDEXES[0], TOKEN_INDEXES[1]);
 
         String dateTime = inputLine.substring(TOKEN_INDEXES[1]);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH:mm:ss.SSS");
-        LocalDateTime startTime = LocalDateTime.parse(dateTime, formatter);
+        LocalDateTime startTime = LocalDateTime.parse(dateTime, TIME_FORMATTER);
 
         return new StartData(abbreviation, startTime);
     }
