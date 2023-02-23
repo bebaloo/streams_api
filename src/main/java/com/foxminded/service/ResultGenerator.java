@@ -32,10 +32,11 @@ public class ResultGenerator {
         List<AbbreviationData> abbreviations = parseService.parseAbbreviations();
 
         return abbreviations
-                .stream().map(a ->
-                        new ResultLap(a.getRacerName()
-                                , a.getRacerTeam()
-                                , Duration.between(startLogs.get(a.getRacerAbbreviation()).getRacerStartTime()
+                .stream()
+                .map(a -> new ResultLap(a.getRacerName()
+                        , a.getRacerTeam()
+                        , Duration
+                        .between(startLogs.get(a.getRacerAbbreviation()).getRacerStartTime()
                                 , endLogs.get(a.getRacerAbbreviation()).getRacerEndTime())))
                 .sorted(comparing(ResultLap::getTimeLap)).toList();
     }
