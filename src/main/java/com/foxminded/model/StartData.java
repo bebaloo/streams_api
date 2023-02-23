@@ -4,8 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class StartData {
-    private static final int START_SUBSTRING_INDEX = 0;
-    private static final int END_SUBSTRING_INDEX = 3;
+    private static final int[] TOKEN_INDEXES = {0, 3};
     private final LocalDateTime racerStartTime;
     private final String racerAbbreviation;
 
@@ -23,9 +22,9 @@ public class StartData {
     }
 
     public static StartData create(String inputLine) {
-        String abbreviation = inputLine.substring(START_SUBSTRING_INDEX, END_SUBSTRING_INDEX);
+        String abbreviation = inputLine.substring(TOKEN_INDEXES[0], TOKEN_INDEXES[1]);
 
-        String dateTime = inputLine.substring(END_SUBSTRING_INDEX);
+        String dateTime = inputLine.substring(TOKEN_INDEXES[1]);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH:mm:ss.SSS");
         LocalDateTime startTime = LocalDateTime.parse(dateTime, formatter);
 

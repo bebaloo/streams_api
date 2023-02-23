@@ -1,7 +1,7 @@
 package com.foxminded.model;
 
 public class AbbreviationData {
-    private static final String FILE_SEPARATOR = "_";
+    private static final String SEPARATOR = "_";
     private final String racerAbbreviation;
     private final String racerName;
     private final String racerTeam;
@@ -25,7 +25,7 @@ public class AbbreviationData {
     }
 
     public static AbbreviationData create(String inputLine) {
-        String[] lineData = inputLine.split(FILE_SEPARATOR);
-        return new AbbreviationData(lineData[0], lineData[1], lineData[2]);
+        String[] tokens = inputLine.split(SEPARATOR);
+        return new AbbreviationData(tokens[0], tokens[1], tokens[2]);
     }
 }

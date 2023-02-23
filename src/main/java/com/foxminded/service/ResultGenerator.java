@@ -7,8 +7,9 @@ import com.foxminded.model.StartData;
 
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
+
+import static java.util.Comparator.comparing;
 
 public class ResultGenerator {
     private final ParseService parseService;
@@ -34,6 +35,6 @@ public class ResultGenerator {
                 }
             }
         }
-        return resultLaps.stream().sorted(Comparator.comparing(ResultLap::getTimeLap)).toList();
+        return resultLaps.stream().sorted(comparing(ResultLap::getTimeLap)).toList();
     }
 }
