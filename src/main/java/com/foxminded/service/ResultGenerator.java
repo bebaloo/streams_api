@@ -6,10 +6,12 @@ import com.foxminded.model.ResultLap;
 import com.foxminded.model.StartData;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static java.util.Comparator.comparing;
+import static java.util.function.UnaryOperator.identity;
+import static java.util.stream.Collectors.toMap;
 
 public class ResultGenerator {
     private final ParseService parseService;
@@ -19,22 +21,22 @@ public class ResultGenerator {
     }
 
     public List<ResultLap> generate() {
-        List<EndData> endLogs = parseService.parseEnd();
-        List<StartData> startLogs = parseService.parseStart();
+        Map<String, EndData> endLogs = parseService.parseEnd()
+                .stream()
+                .collect(toMap(EndData::getRacerAbbreviation, identity()));
+
+        Map<String, StartData> startLogs = parseService.parseStart()
+                .stream()
+                .collect(toMap(StartData::getRacerAbbreviation, identity()));
+
         List<AbbreviationData> abbreviations = parseService.parseAbbreviations();
 
-        List<ResultLap> resultLaps = new ArrayList<>();
-
-        for (StartData startData : startLogs) {
-            for (EndData endData : endLogs) {
-                for (AbbreviationData abbreviationData : abbreviations) {
-                    if (startData.getRacerAbbreviation().equals(endData.getRacerAbbreviation()) && startData.getRacerAbbreviation().equals(abbreviationData.getRacerAbbreviation())) {
-                        Duration duration = Duration.between(startData.getRacerStartTime(), endData.getRacerEndTime());
-                        resultLaps.add(new ResultLap(abbreviationData.getRacerName(), abbreviationData.getRacerTeam(), duration));
-                    }
-                }
-            }
-        }
-        return resultLaps.stream().sorted(comparing(ResultLap::getTimeLap)).toList();
+        return abbreviations
+                .stream().map(a ->
+                        new ResultLap(a.getRacerName()
+                                , a.getRacerTeam()
+                                , Duration.between(startLogs.get(a.getRacerAbbreviation()).getRacerStartTime()
+                                , endLogs.get(a.getRacerAbbreviation()).getRacerEndTime())))
+                .sorted(comparing(ResultLap::getTimeLap)).toList();
     }
 }
