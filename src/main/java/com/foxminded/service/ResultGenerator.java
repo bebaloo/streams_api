@@ -14,12 +14,6 @@ import static java.util.function.UnaryOperator.identity;
 import static java.util.stream.Collectors.toMap;
 
 public class ResultGenerator {
-    private final ParseService parseService;
-
-    public ResultGenerator() {
-        parseService = new ParseService();
-    }
-
     public List<ResultLap> generate(List<AbbreviationData> abbreviations, List<StartData> startLogs, List<EndData> endLogs) {
         Map<String, EndData> endLogsMap = endLogs.stream()
                 .collect(toMap(EndData::getRacerAbbreviation, identity()));

@@ -3,14 +3,12 @@ package com.foxminded.model;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-//TODO add StartTime and EndTime
-
 public class ResultLap {
-    private String abbreviation;
+    private final String abbreviation;
     private String racerName;
     private String racerTeam;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private final LocalDateTime startTime;
+    private final LocalDateTime endTime;
 
     public ResultLap(String abbreviation, LocalDateTime startTime, LocalDateTime endTime) {
         this.abbreviation = abbreviation;
