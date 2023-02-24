@@ -10,6 +10,7 @@ public class ResultLap {
     private String racerTeam;
     private final LocalDateTime startTime;
     private final LocalDateTime endTime;
+    private static final int TIME_DIVISOR = 60;
 
     public ResultLap(String abbreviation, LocalDateTime startTime, LocalDateTime endTime) {
         this.abbreviation = abbreviation;
@@ -36,9 +37,9 @@ public class ResultLap {
 
     public String getFormattedTimeLap() {
         Duration timeLap = getDuration();
-        Long min = timeLap.toMinutes() % 60;
-        Long sec = timeLap.toSeconds() % 60;
-        Long millis = timeLap.toMillis() % 60;
+        Long min = timeLap.toMinutes() % TIME_DIVISOR;
+        Long sec = timeLap.toSeconds() % TIME_DIVISOR;
+        Long millis = timeLap.toMillis() % TIME_DIVISOR;
         return String.format("%d:%d.%d", min, sec, millis);
     }
     public Duration getDuration() {
