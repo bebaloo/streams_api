@@ -10,10 +10,10 @@ public class ParseService {
     private static final String ABBREVIATIONS_FILE_PATH = "src/main/resources/abbreviations.txt";
     private static final String END_FILE_PATH = "src/main/resources/end.log";
     private static final String START_FILE_PATH = "src/main/resources/start.log";
-    private final FileReader reader;
+    private final FileService reader;
 
     public ParseService() {
-        this.reader = new FileReader();
+        this.reader = new FileService();
     }
 
     public List<AbbreviationData> parseAbbreviations() {
