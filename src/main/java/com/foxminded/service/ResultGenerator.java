@@ -5,7 +5,6 @@ import com.foxminded.model.EndData;
 import com.foxminded.model.ResultLap;
 import com.foxminded.model.StartData;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,37 +20,31 @@ public class ResultGenerator {
         parseService = new ParseService();
     }
 
-    public List<ResultLap> generate() {
-        Map<String, EndData> endLogs = parseService.parseEnd().stream()
+    public List<ResultLap> generate(List<AbbreviationData> abbreviations, List<StartData> startLogs, List<EndData> endLogs) {
+        Map<String, EndData> endLogsMap = endLogs.stream()
                 .collect(toMap(EndData::getRacerAbbreviation, identity()));
 
-        Map<String, StartData> startLogs = parseService.parseStart().stream()
+        Map<String, StartData> startLogsMap = startLogs.stream()
                 .collect(toMap(StartData::getRacerAbbreviation, identity()));
 
-        List<AbbreviationData> abbreviations = parseService.parseAbbreviations();
-
         return abbreviations.stream()
-                .map(a -> new ResultLap(a.getRacerName(), a.getRacerTeam(),
-                        Duration.between(startLogs.get(a.getRacerAbbreviation()).getRacerStartTime(),
-                                endLogs.get(a.getRacerAbbreviation()).getRacerEndTime())))
-                .sorted(comparing(ResultLap::getTimeLap)).toList();
+                .map(a -> new ResultLap(a.getRacerAbbreviation(),
+                        a.getRacerName(),
+                        a.getRacerTeam(),
+                        startLogsMap.get(a.getRacerAbbreviation()).getRacerStartTime(),
+                        endLogsMap.get(a.getRacerAbbreviation()).getRacerEndTime()))
+                .sorted(comparing(ResultLap::getDuration)).toList();
     }
 
-    public List<ResultLap> generate1() {
-        List<EndData> endLogs = parseService.parseEnd();
-
-        List<StartData> startLogs = parseService.parseStart();
-
-        List<AbbreviationData> abbreviations = parseService.parseAbbreviations();
-        
+    public List<ResultLap> generate1(List<AbbreviationData> abbreviations, List<StartData> startLogs, List<EndData> endLogs) {
         List<ResultLap> resultLaps = new ArrayList<>();
 
         for (EndData endData : endLogs) {
             StartData startData = startLogs.stream()
                     .filter(sd -> sd.getRacerAbbreviation().equals(endData.getRacerAbbreviation())).findAny()
                     .orElse(null);
-            
-            resultLaps.add(new ResultLap(startData.getRacerAbbreviation(), Duration.between(startData.getRacerStartTime(), endData.getRacerEndTime())));
+
+            resultLaps.add(new ResultLap(startData.getRacerAbbreviation(), startData.getRacerStartTime(), endData.getRacerEndTime()));
         }
         
         for (ResultLap resultLap : resultLaps) {
@@ -63,6 +56,6 @@ public class ResultGenerator {
             resultLap.setRacerTeam(abbreviationData.getRacerTeam());
         }
 
-        return resultLaps;
+        return resultLaps.stream().sorted(comparing(ResultLap::getDuration)).toList();
     }
 }

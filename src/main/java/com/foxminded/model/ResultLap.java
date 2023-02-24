@@ -1,6 +1,7 @@
 package com.foxminded.model;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
 
 //TODO add StartTime and EndTime
 
@@ -8,17 +9,21 @@ public class ResultLap {
     private String abbreviation;
     private String racerName;
     private String racerTeam;
-    private Duration timeLap;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
 
-    public ResultLap(String racerName, String racerTeam, Duration timeLap) {
-        this.setRacerName(racerName);
-        this.setRacerTeam(racerTeam);
-        this.timeLap = timeLap;
-    }
-    
-    public ResultLap(String abbreviation, Duration timeLap) {
+    public ResultLap(String abbreviation, LocalDateTime startTime, LocalDateTime endTime) {
         this.abbreviation = abbreviation;
-        this.timeLap = timeLap;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+
+    public ResultLap(String abbreviation, String racerName, String racerTeam, LocalDateTime startTime, LocalDateTime endTime) {
+        this.abbreviation = abbreviation;
+        this.racerName = racerName;
+        this.racerTeam = racerTeam;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     public String getRacerName() {
@@ -29,23 +34,20 @@ public class ResultLap {
         return racerTeam;
     }
 
-    public Duration getTimeLap() {
-        return timeLap;
-    }
 
     public String getFormattedTimeLap() {
+        Duration timeLap = getDuration();
         Long min = timeLap.toMinutes() % 60;
         Long sec = timeLap.toSeconds() % 60;
         Long millis = timeLap.toMillis() % 60;
         return String.format("%d:%d.%d", min, sec, millis);
     }
+    public Duration getDuration() {
+        return Duration.between(startTime, endTime);
+    }
 
     public String getAbbreviation() {
         return abbreviation;
-    }
-
-    public void setAbbreviation(String abbreviation) {
-        this.abbreviation = abbreviation;
     }
 
     public void setRacerName(String racerName) {

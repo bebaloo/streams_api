@@ -5,7 +5,6 @@ import com.foxminded.model.EndData;
 import com.foxminded.model.StartData;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ParseService {
     private static final String ABBREVIATIONS_FILE_PATH = "src/main/resources/abbreviations.txt";
