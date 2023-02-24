@@ -6,7 +6,7 @@ public class AbbreviationData {
     private final String racerName;
     private final String racerTeam;
 
-    private AbbreviationData(String racerAbbreviation, String racerName, String racerTeam) {
+    public AbbreviationData(String racerAbbreviation, String racerName, String racerTeam) {
         this.racerAbbreviation = racerAbbreviation;
         this.racerName = racerName;
         this.racerTeam = racerTeam;

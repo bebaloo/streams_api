@@ -2,6 +2,7 @@ package com.foxminded.model;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class ResultLap {
     private final String abbreviation;
@@ -54,5 +55,18 @@ public class ResultLap {
 
     public void setRacerTeam(String racerTeam) {
         this.racerTeam = racerTeam;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ResultLap resultLap = (ResultLap) o;
+        return Objects.equals(abbreviation, resultLap.abbreviation) && Objects.equals(racerName, resultLap.racerName) && Objects.equals(racerTeam, resultLap.racerTeam) && Objects.equals(startTime, resultLap.startTime) && Objects.equals(endTime, resultLap.endTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(abbreviation, racerName, racerTeam, startTime, endTime);
     }
 }

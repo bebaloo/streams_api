@@ -10,7 +10,7 @@ public class StartData {
     private final LocalDateTime racerStartTime;
     private final String racerAbbreviation;
 
-    private StartData(String racerAbbreviation, LocalDateTime racerStartTime) {
+    public StartData(String racerAbbreviation, LocalDateTime racerStartTime) {
         this.racerAbbreviation = racerAbbreviation;
         this.racerStartTime = racerStartTime;
     }
