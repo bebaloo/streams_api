@@ -18,20 +18,14 @@ public class ParseService {
     }
 
     public List<AbbreviationData> parseAbbreviations() {
-        List<String> inputLines = reader.readLines(ABBREVIATIONS_FILE_PATH);
-
-        return inputLines.stream().map(AbbreviationData::create).collect(Collectors.toList());
+        return reader.readLines(ABBREVIATIONS_FILE_PATH).stream().map(AbbreviationData::create).toList();
     }
 
     public List<EndData> parseEnd() {
-        List<String> inputLines = reader.readLines(END_FILE_PATH);
-
-        return inputLines.stream().map(EndData::create).collect(Collectors.toList());
+        return reader.readLines(END_FILE_PATH).stream().map(EndData::create).toList();
     }
 
     public List<StartData> parseStart() {
-        List<String> inputLines = reader.readLines(START_FILE_PATH);
-
-        return inputLines.stream().map(StartData::create).collect(Collectors.toList());
+        return reader.readLines(START_FILE_PATH).stream().map(StartData::create).toList();
     }
 }
