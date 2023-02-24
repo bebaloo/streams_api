@@ -13,8 +13,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ResultGeneratorTest {
-    private final ResultGenerator generator = new ResultGenerator();
+class RacerServiceTest {
+    private final RacerService generator = new RacerService();
     private final List<AbbreviationData> abbreviations = new ArrayList<>();
 
     private final AbbreviationData abbreviationData = new AbbreviationData("DTF", "Dmytro Tkachuk", "Foxminded");
@@ -31,25 +31,25 @@ class ResultGeneratorTest {
     private final ResultLap resultLap = new ResultLap("DTF", "Dmytro Tkachuk", "Foxminded", startTime, endTime);
 
     @Test
-    void generate_shouldReturnsListOfResultLaps_whenGivenListsOfEndDataStartDataAbbreviationData() {
+    void generateResult_shouldReturnsListOfResultLaps_whenGivenListsOfEndDataStartDataAbbreviationData() {
         abbreviations.add(abbreviationData);
         startLogs.add(startData);
         endLogs.add(endData);
         expectedResultLaps.add(resultLap);
 
-        List<ResultLap> actualResultLaps = generator.generate(abbreviations, startLogs, endLogs);
+        List<ResultLap> actualResultLaps = generator.generateResult(abbreviations, startLogs, endLogs);
 
         assertEquals(expectedResultLaps, actualResultLaps);
     }
 
     @Test
-    void generate1_shouldReturnsListOfResultLaps_whenGivenListsOfEndDataStartDataAbbreviationData() {
+    void generateResult1_shouldReturnsListOfResultLaps_whenGivenListsOfEndDataStartDataAbbreviationData() {
         abbreviations.add(abbreviationData);
         startLogs.add(startData);
         endLogs.add(endData);
         expectedResultLaps.add(resultLap);
 
-        List<ResultLap> actualResultLaps = generator.generate1(abbreviations, startLogs, endLogs);
+        List<ResultLap> actualResultLaps = generator.generateResult1(abbreviations, startLogs, endLogs);
 
         assertEquals(expectedResultLaps, actualResultLaps);
     }

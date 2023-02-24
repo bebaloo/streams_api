@@ -13,8 +13,8 @@ import static java.util.Comparator.comparing;
 import static java.util.function.UnaryOperator.identity;
 import static java.util.stream.Collectors.toMap;
 
-public class ResultGenerator {
-    public List<ResultLap> generate(List<AbbreviationData> abbreviations, List<StartData> startLogs, List<EndData> endLogs) {
+public class RacerService {
+    public List<ResultLap> generateResult(List<AbbreviationData> abbreviations, List<StartData> startLogs, List<EndData> endLogs) {
         Map<String, EndData> endLogsMap = endLogs.stream()
                 .collect(toMap(EndData::getRacerAbbreviation, identity()));
 
@@ -30,7 +30,7 @@ public class ResultGenerator {
                 .sorted(comparing(ResultLap::getDuration)).toList();
     }
 
-    public List<ResultLap> generate1(List<AbbreviationData> abbreviations, List<StartData> startLogs, List<EndData> endLogs) {
+    public List<ResultLap> generateResult1(List<AbbreviationData> abbreviations, List<StartData> startLogs, List<EndData> endLogs) {
         List<ResultLap> resultLaps = new ArrayList<>();
 
         for (EndData endData : endLogs) {
